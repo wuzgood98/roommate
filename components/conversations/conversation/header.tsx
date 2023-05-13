@@ -39,7 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ conversation }) => {
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       />
-      <div className="sticky top-0 flex w-full items-center justify-between border-b bg-white px-4 py-3 shadow-sm sm:px-4 lg:px-6">
+      <div className="sticky top-0 z-30 flex w-full items-center justify-between border-b bg-white px-4 py-3 shadow-sm sm:px-4 lg:px-6">
         <div className="flex items-center gap-3">
           <Link
             href="/conversations"
