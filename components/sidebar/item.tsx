@@ -52,5 +52,5 @@ export const Item: React.FC<ItemProps> = ({
     );
   }
 
-  return <li>{bodyContent}</li>;
+  return <li className="list-none">{bodyContent}</li>;
 };
