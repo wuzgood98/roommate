@@ -1,22 +1,18 @@
-import { getCurrentUser } from "@/actions/getCurrentUser";
 import { ModeToggle } from "@/components/mode-toggle";
-import { authOptions } from "@/lib/auth";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { redirect } from "next/navigation";
+import Link from "next/link";
+import { Metadata } from "next";
 
-export default async function Home() {
-  const user = await getCurrentUser();
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Get started.",
+};
 
-  if (!user) {
-    redirect(authOptions?.pages?.signIn || "/login");
-  }
-
-  if (user) {
-    redirect("/conversations");
-  }
-
+export default function Home() {
   return (
-    <main className="flex min-h-[100dvh] min-h-[100vh] w-full flex-col items-center justify-center space-y-4 bg-gray-100 py-12 dark:bg-background px-6">
+    <main className="flex min-h-[100dvh] min-h-[100vh] w-full flex-col items-center justify-center space-y-4 bg-gray-100 px-6 py-12 dark:bg-background">
       <div className="mx-auto max-w-sm">
         <Image
           height="2048"
@@ -26,6 +22,13 @@ export default async function Home() {
           alt="Logo"
         />
       </div>
+      <Link
+        href="/conversations"
+        aria-label="Go to conversations page"
+        className={cn(buttonVariants())}
+      >
+        Conversations
+      </Link>
       <ModeToggle />
     </main>
   );

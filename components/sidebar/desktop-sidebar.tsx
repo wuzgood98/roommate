@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Avatar } from "../avatar";
 import { Item } from "./item";
 import { SettingsModal } from "./settings-modal";
+import { ModeToggle } from "../mode-toggle";
 
 interface DesktopSidebarProps {
   currentUser: User;
@@ -39,7 +40,8 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
             ))}
           </ul>
         </nav>
-        <nav className="mt-4 flex flex-col items-center justify-between">
+        <nav className="mt-4 flex flex-col gap-y-4 items-center justify-between">
+          <ModeToggle />
           <button
             type="button"
             aria-label="Open menu"

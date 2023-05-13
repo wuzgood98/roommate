@@ -4,6 +4,13 @@ import { getUsers } from "@/actions/getUsers";
 import { ConversationList } from "@/components/conversations/conversation-list";
 import { Sidebar } from "@/components/sidebar/sidebar";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Conversations",
+  description: "Conversations",
+};
+
 export default async function ConversationsLayout({
   children,
 }: {
