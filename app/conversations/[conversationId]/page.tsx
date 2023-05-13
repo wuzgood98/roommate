@@ -26,9 +26,8 @@ export default async function Conversation({
 
   return (
     <div className="h-full lg:pl-80">
-      <div className="grid min-h-[100dvh] min-h-[100vh] grid-rows-[auto_1fr_auto]">
+      <div className="flex h-full flex-col">
         <Header conversation={conversation} />
-        {/* <div>messages</div> */}
         <Body initialMessages={messages} />
         <Form />
       </div>
