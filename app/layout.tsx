@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import AuthContext from "@/context/auth-context";
 import { ActiveStatus } from "@/components/active-status";
+import { Metadata } from "next";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -15,7 +16,7 @@ const fontHeading = localFont({
   variable: "--font-heading",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Whiteroom",
   description:
     "Whiteroom A a messaging web app designed to streamline communication for individuals and teams. With its user-friendly interface and robust features, it offers a convenient platform for connecting and engaging with others. Whether you're chatting one-on-one, collaborating on projects, or staying connected with friends and colleagues, Whiteroom provides a secure and intuitive environment. Enjoy organized conversations, file sharing, and personalized settings, all aimed at enhancing your messaging experience. Simplify your communication and foster meaningful connections with Whiteroom.",
@@ -31,6 +32,12 @@ export const metadata = {
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 };
 
 export default function RootLayout({
