@@ -12,7 +12,7 @@ export function MobileFooter() {
   }
 
   return (
-    <div className="fixed bottom-0 z-40 flex w-full items-center justify-between border-t bg-white lg:hidden">
+    <div className="fixed bottom-0 z-40 flex w-full items-center justify-between border-t bg-background lg:hidden">
       {routes.map((route) => (
         <Item
           label={route.label}

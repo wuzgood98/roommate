@@ -25,7 +25,7 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       />
-      <div className="hidden justify-between lg:fixed lg:inset-y-0 lg:left-0 lg:z-40 lg:flex lg:w-20 lg:flex-col lg:overflow-y-auto lg:border-r lg:bg-white lg:pb-4 xl:px-6">
+      <div className="hidden justify-between bg-background lg:fixed lg:inset-y-0 lg:left-0 lg:z-40 lg:flex lg:w-20 lg:flex-col lg:overflow-y-auto lg:border-r lg:pb-4 xl:px-6">
         <nav className="mt-4 flex flex-col justify-between">
           <ul role="list" className="flex flex-col items-center space-y-1">
             {routes.map((item) => (
@@ -40,8 +40,8 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
             ))}
           </ul>
         </nav>
-        <nav className="mt-4 flex flex-col gap-y-4 items-center justify-between">
-          <ModeToggle />
+        <nav className="mt-4 flex flex-col items-center justify-between gap-y-4">
+          <ModeToggle isOnSidebar />
           <button
             type="button"
             aria-label="Open menu"

@@ -11,6 +11,7 @@ import { useOtherUser, useActiveList } from "@/hooks";
 import { Avatar } from "@/components/avatar";
 import { AvatarGroup } from "@/components/avatar-group";
 import { ConfirmModal } from "./confirm-modal";
+import { ModeToggle } from "@/components/mode-toggle";
 
 interface ProfileDrawerProps {
   isOpen: boolean;
@@ -79,13 +80,13 @@ export const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                   leaveFrom="translate-x-0"
                   leaveTo="translate-x-full"
                 >
-                  <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
-                    <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
+                  <Dialog.Panel className="pointer-events-auto w-screen max-w-xs sm:max-w-md">
+                    <div className="flex h-full flex-col overflow-y-scroll bg-background py-6 shadow-xl dark:border-l">
                       <div className="flex items-start justify-end px-4 sm:px-6">
                         <button
                           type="button"
                           aria-label="Close panel"
-                          className="ml-3 flex h-7 items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          className="ml-3 flex h-7 items-center rounded-md bg-background text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-300 dark:hover:text-gray-200"
                           onClick={onClose}
                         >
                           <span className="sr-only">Close panel</span>
@@ -102,18 +103,20 @@ export const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                             )}
                           </div>
                           <p>{title}</p>
-                          <p className="text-sm text-gray-500">{statusText}</p>
+                          <p className="text-sm text-gray-500 dark:text-gray-300">
+                            {statusText}
+                          </p>
                           <div className="my-8 flex gap-10">
                             <button
                               type="button"
                               aria-label="Delete group"
                               onClick={() => setConfirmOpen(true)}
-                              className="flex flex-col items-center gap-3 transition-opacity hover:opacity-75"
+                              className="flex flex-col items-center gap-3 hover:opacity-75 hover:transition-opacity"
                             >
-                              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100">
+                              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-500 dark:bg-opacity-40">
                                 <IoTrash size={20} />
                               </div>
-                              <span className="text-sm font-light text-neutral-600">
+                              <span className="text-sm font-light text-neutral-600 dark:text-neutral-300">
                                 Delete
                               </span>
                             </button>
@@ -122,10 +125,10 @@ export const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                             <dl className="space-y-8 px-4 sm:space-y-6 sm:px-6">
                               {data.isGroup && (
                                 <div>
-                                  <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
+                                  <dt className="text-sm font-medium text-gray-500 dark:text-gray-300 sm:w-40 sm:flex-shrink-0">
                                     Emails
                                   </dt>
-                                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
+                                  <dd className="mt-1 text-sm text-gray-900 dark:text-gray-300 sm:col-span-2">
                                     {data.users
                                       .map((user) => user.email)
                                       .join(", ")}
@@ -134,10 +137,10 @@ export const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                               )}
                               {!data.isGroup && (
                                 <div>
-                                  <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
+                                  <dt className="text-sm font-medium text-gray-500 dark:text-gray-300 sm:w-40 sm:flex-shrink-0">
                                     Email
                                   </dt>
-                                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
+                                  <dd className="mt-1 text-sm text-gray-900 dark:text-gray-300 sm:col-span-2">
                                     {otherUser.email}
                                   </dd>
                                 </div>
@@ -145,14 +148,14 @@ export const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                               {!data.isGroup && (
                                 <>
                                   <div
-                                    className="h-[1px] w-full bg-gray-200"
+                                    className="h-[1px] w-full bg-gray-200 dark:bg-gray-800"
                                     aria-hidden="true"
                                   />
                                   <div>
-                                    <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
+                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300 sm:w-40 sm:flex-shrink-0">
                                       Joined
                                     </dt>
-                                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
+                                    <dd className="mt-1 text-sm text-gray-900 dark:text-gray-300 sm:col-span-2">
                                       <time dateTime={joinedDate}>
                                         {joinedDate}
                                       </time>
@@ -162,6 +165,9 @@ export const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                               )}
                             </dl>
                           </div>
+                        </div>
+                        <div className="absolute inset-x-0 bottom-4 mx-auto max-w-max">
+                          <ModeToggle />
                         </div>
                       </div>
                     </div>

@@ -30,7 +30,9 @@ export const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
   const body = cn("flex flex-col gap-2", isOwn && "items-end");
   const message = cn(
     "text-sm w-fit overflow-hidden",
-    isOwn ? "bg-sky-500 text-white" : "bg-gray-100",
+    isOwn
+      ? "bg-sky-500 text-white"
+      : "bg-gray-100 dark:text-gray-300 dark:bg-neutral-500 dark:bg-opacity-40",
     data.image ? "rounded-md p-0" : "rounded-full py-2 px-3"
   );
 
@@ -41,8 +43,10 @@ export const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
       </div>
       <div className={body}>
         <div className="flex items-center gap-1">
-          <p className="text-sm text-gray-500">{data.sender.name}</p>
-          <p className="text-xs text-gray-400">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            {data.sender.name}
+          </p>
+          <p className="text-xs text-gray-400 dark:text-gray-300">
             {format(new Date(data.createdAt), "p")}
           </p>
         </div>
@@ -66,7 +70,7 @@ export const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
           )}
         </div>
         {isLast && isOwn && seenList.length > 0 && (
-          <p className="text-xs font-light text-gray-500">
+          <p className="text-xs font-light text-gray-500 dark:text-gray-300">
             {`Seen by ${seenList}`}
           </p>
         )}
