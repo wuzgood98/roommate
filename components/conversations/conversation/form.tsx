@@ -38,7 +38,7 @@ export const Form = () => {
   };
 
   return (
-    <div className="sticky bottom-0 z-30 flex w-full items-center gap-2 border-t bg-white px-4 py-4 lg:gap-4">
+    <div className="sticky bottom-0 z-30 flex w-full items-center gap-2 border-t bg-background px-4 py-4 lg:gap-4">
       <CloudinaryButton
         options={{ maxFiles: 1 }}
         onUpload={handleUpload}
@@ -61,7 +61,7 @@ export const Form = () => {
             type="text"
             placeholder="Write a message"
             className={cn(
-              "rounded-full bg-neutral-100 font-light text-black focus:outline-none"
+              "rounded-full bg-neutral-100 font-light text-black focus:outline-none dark:bg-transparent dark:text-white dark:placeholder-gray-400"
             )}
           />
         </div>

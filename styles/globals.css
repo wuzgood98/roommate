@@ -8,6 +8,7 @@ body,
   height: 100%;
 }
 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -40,6 +41,8 @@ body,
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    --light: hsl(0, 0%, 50%);
   }
 
   .dark {
@@ -73,6 +76,8 @@ body,
     --ring: 216 34% 17%;
 
     --radius: 0.5rem;
+    --tw-placeholder-opacity: 1;
+    --light: rgb(156 163 175 / var(--tw-placeholder-opacity))
   }
 }
 
@@ -84,5 +89,19 @@ body,
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  .css-1jqq78o-placeholder {
+    --tw-placeholder-opacity: 1;
+    --color: hsl(0, 0%, 50%);
+    grid-area: 1/1/2/3;
+    color: var(--color);
+    margin-left: 2px;
+    margin-right: 2px;
+    box-sizing: border-box;
+  }
+
+  .dark .css-1jqq78o-placeholder {
+    --color: rgb(156 163 175 / var(--tw-placeholder-opacity))
   }
 }

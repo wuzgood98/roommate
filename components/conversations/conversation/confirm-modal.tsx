@@ -56,19 +56,19 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
         <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
           <Dialog.Title
             as="h3"
-            className="text-base font-semibold leading-6 text-gray-900"
+            className="text-base font-semibold leading-6 text-gray-900 dark:text-gray-300"
           >
             Delete conversation
           </Dialog.Title>
           <div className="mt-2">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
               Are you sure you want to delete this conversation? This action
               cannot be undone.
             </p>
           </div>
         </div>
       </div>
-      <div className="mt-5 space-x-2 sm:mt-4 sm:flex sm:flex-row-reverse sm:gap-3">
+      <div className="mt-5 flex flex-row-reverse gap-x-3 sm:mt-4">
         <Button
           disabled={isLoading}
           className={buttonVariants({ variant: "destructive" })}
@@ -77,11 +77,11 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
           aria-label="Delete conversation"
         >
           {isLoading && (
-              <Icons.spinner
-                className="mr-2 h-4 w-4 animate-spin"
-                aria-hidden="true"
-              />
-            )}
+            <Icons.spinner
+              className="mr-2 h-4 w-4 animate-spin"
+              aria-hidden="true"
+            />
+          )}
           Delete
         </Button>
         <Button

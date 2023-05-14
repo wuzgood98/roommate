@@ -30,14 +30,16 @@ export const UserBox: React.FC<UserBoxProps> = ({ user }) => {
       <button
         type="button"
         onClick={handleClick}
-        className="relative flex w-full items-center space-x-3 rounded-lg bg-white p-3 transition-colors hover:bg-neutral-100"
+        className="relative flex w-full items-center space-x-3 rounded-lg bg-white p-3 hover:bg-neutral-100  hover:transition-colors dark:bg-transparent dark:hover:bg-neutral-600 dark:hover:bg-opacity-40"
       >
         <Avatar user={user} />
         <div className="min-w-0 flex-1">
           <div className="focus:outline-none">
             <span className="absolute inset-0" aria-hidden="true" />
             <div className="mb-1 flex items-center justify-between">
-              <p className="text-sm font-medium text-gray-900">{user.name}</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-white">
+                {user.name}
+              </p>
             </div>
           </div>
         </div>

@@ -89,8 +89,10 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
       onClick={handleClick}
       aria-label={`Open conversation with ${otherUser.name}`}
       className={cn(
-        "relative flex w-full cursor-pointer items-center space-x-3 rounded-lg p-3 transition-colors hover:bg-neutral-100",
-        selected ? "bg-neutral-100" : "bg-white"
+        "relative flex w-full cursor-pointer items-center space-x-3 rounded-lg p-3 hover:bg-neutral-100 hover:transition-colors dark:bg-opacity-40 dark:hover:bg-neutral-600 dark:hover:bg-opacity-40",
+        selected
+          ? "bg-neutral-100 dark:bg-neutral-500"
+          : "bg-white dark:bg-transparent"
       )}
     >
       {data.isGroup ? (
@@ -102,7 +104,7 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
         <div className="focus:outline-none">
           <div className="mb-1 flex items-center justify-between">
             <span
-              className="text-md font-medium text-gray-900"
+              className="text-md font-medium text-gray-900 dark:text-white"
               title={
                 data.isGroup
                   ? (data.name as string)
@@ -112,7 +114,7 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
               {data.name || otherUser.name}
             </span>
             {lastMessage?.createdAt && (
-              <span className="text-xs font-light text-gray-400">
+              <span className="text-xs font-light text-gray-400 dark:text-gray-300">
                 {format(new Date(lastMessage.createdAt), "p")}
               </span>
             )}
@@ -122,7 +124,7 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
               <Icons.Seen
                 className={cn(
                   "mr-2 h-4 w-4 transition-colors",
-                  hasSeen ? "text-blue-400" : "text-gray-600"
+                  hasSeen ? "text-blue-400" : "text-gray-600 dark:text-gray-300"
                 )}
                 aria-hidden="true"
               />
@@ -132,7 +134,7 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
               <Icons.Seen
                 className={cn(
                   "mr-2 h-4 w-4 transition-colors",
-                  hasSeen ? "text-blue-400" : "text-gray-600"
+                  hasSeen ? "text-blue-400" : "text-gray-600 dark:text-gray-300"
                 )}
                 aria-hidden="true"
               />
@@ -142,7 +144,7 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
               !!lastMessageAuthor?.length &&
               data.isGroup && (
                 <span
-                  className="mr-1 truncate text-sm text-gray-600"
+                  className="mr-1 truncate text-sm text-gray-600 dark:text-gray-300"
                   title={lastMessageAuthor}
                 >
                   {lastMessageAuthor}
@@ -150,12 +152,15 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
                 </span>
               )}
             {!currentUserIsNotTheAuthorOfLastMessage && data.isGroup && (
-              <span className="mr-1 truncate text-sm text-gray-600" title="You">
+              <span
+                className="mr-1 truncate text-sm text-gray-600 dark:text-gray-300"
+                title="You"
+              >
                 You{":"}
               </span>
             )}
             <span
-              className="truncate text-sm text-gray-600"
+              className="truncate text-sm text-gray-600 dark:text-gray-300"
               title={lastMessageText}
             >
               {lastMessageText}

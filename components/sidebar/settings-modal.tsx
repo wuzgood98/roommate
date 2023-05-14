@@ -76,15 +76,18 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     <Modal isOpen={isOpen} onClose={onClose}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">
+          <h2 className="text-base font-semibold leading-7 text-gray-900 dark:text-gray-300">
             Profile
           </h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
+          <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">
             Edit your public information.
           </p>
           <div className="mt-10 flex flex-col gap-y-8">
             <div>
-              <Label htmlFor="name" className={cn("text-muted-foreground")}>
+              <Label
+                htmlFor="name"
+                className={cn("text-gray-900 dark:text-gray-300")}
+              >
                 Name
               </Label>
               <Input
@@ -96,11 +99,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 id="name"
                 type="text"
                 name="name"
-                className={cn(errors["name"] && "focus:ring-rose-500")}
+                className={cn(errors["name"] && "focus:ring-rose-500", "mt-1")}
               />
             </div>
             <div>
-              <Label htmlFor="photo" className="leading-6 text-gray-900">
+              <Label
+                htmlFor="photo"
+                className={cn("leading-6 text-gray-900 dark:text-gray-300")}
+              >
                 Photo
               </Label>
               <div className="mt-2 flex items-center gap-x-3">
