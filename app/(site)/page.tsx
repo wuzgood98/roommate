@@ -27,7 +27,7 @@ export default function Home() {
         aria-label="Go to conversations page"
         className={cn(buttonVariants())}
       >
-        Conversations
+        Start a conversation
       </Link>
       <ModeToggle />
     </main>
