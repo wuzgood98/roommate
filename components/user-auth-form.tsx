@@ -153,11 +153,14 @@ export const UserAuthForm = ({
       className={cn("mt-8 sm:mx-auto sm:w-full sm:max-w-md", className)}
       {...props}
     >
-      <div className="bg-background px-4 py-8 shadow dark:bg-[#1c2029] sm:rounded-lg sm:px-10">
+      <div className="bg-background px-4 py-8 shadow dark:border dark:shadow-lg dark:shadow-card sm:rounded-lg sm:px-10">
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {isRegisterPage && (
             <div>
-              <Label htmlFor="name" className={cn("text-muted-foreground")}>
+              <Label
+                htmlFor="name"
+                className={cn("text-gray-900 dark:text-gray-300")}
+              >
                 Name
               </Label>
               <Input
@@ -177,7 +180,10 @@ export const UserAuthForm = ({
           )}
 
           <div>
-            <Label htmlFor="email" className={cn("text-muted-foreground")}>
+            <Label
+              htmlFor="email"
+              className={cn("text-gray-900 dark:text-gray-300")}
+            >
               Email address
             </Label>
             <Input
@@ -199,7 +205,10 @@ export const UserAuthForm = ({
           </div>
 
           <div>
-            <Label htmlFor="password" className={cn("text-muted-foreground")}>
+            <Label
+              htmlFor="password"
+              className={cn("text-gray-900 dark:text-gray-300")}
+            >
               Password
             </Label>
             <Input
@@ -242,7 +251,7 @@ export const UserAuthForm = ({
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-muted px-2 text-muted-foreground">
+              <span className="bg-muted px-2 text-gray-900 dark:text-gray-300">
                 Or continue with
               </span>
             </div>
@@ -254,7 +263,7 @@ export const UserAuthForm = ({
               className={cn(
                 buttonVariants({
                   variant: "outline",
-                  className: "w-full text-muted-foreground",
+                  className: "w-full text-gray-900 dark:text-gray-300",
                 })
               )}
               onClick={() => {
@@ -277,7 +286,7 @@ export const UserAuthForm = ({
               className={cn(
                 buttonVariants({
                   variant: "outline",
-                  className: "w-full text-muted-foreground",
+                  className: "w-full text-gray-900 dark:text-gray-300",
                 })
               )}
               onClick={() => {
@@ -297,7 +306,7 @@ export const UserAuthForm = ({
             </button>
           </div>
         </div>
-        <div className="mt-6 flex justify-center gap-2 px-2 text-sm text-gray-500">
+        <div className="mt-6 flex justify-center gap-2 px-2 text-sm text-gray-500 dark:text-gray-300">
           <p>
             {isRegisterPage ? "Already have an account?" : "New to Messenger?"}
           </p>
