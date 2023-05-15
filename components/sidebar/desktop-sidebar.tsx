@@ -7,6 +7,7 @@ import { Avatar } from "../avatar";
 import { Item } from "./item";
 import { SettingsModal } from "./settings-modal";
 import { ModeToggle } from "../mode-toggle";
+import useSettingsModal from "@/hooks/useSettingsModal";
 
 interface DesktopSidebarProps {
   currentUser: User;
@@ -16,14 +17,14 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
   currentUser,
 }) => {
   const routes = useRoutes();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { isOpen, close, open } = useSettingsModal();
 
   return (
     <>
       <SettingsModal
         currentUser={currentUser}
         isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={() => close()}
       />
       <div className="hidden justify-between bg-background lg:fixed lg:inset-y-0 lg:left-0 lg:z-40 lg:flex lg:w-20 lg:flex-col lg:overflow-y-auto lg:border-r lg:pb-4 xl:px-6">
         <nav className="mt-4 flex flex-col justify-between">
@@ -45,7 +46,7 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
           <button
             type="button"
             aria-label="Open menu"
-            onClick={() => setIsOpen(true)}
+            onClick={() => open()}
             className="transition-opacity hover:opacity-75"
           >
             <Avatar user={currentUser} />

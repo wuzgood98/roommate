@@ -63,6 +63,10 @@ export const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
     };
   }, [conversationId]);
 
+  useEffect(() => {
+    bottomRef?.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <div className="flex-1 overflow-y-auto">
       {messages.map((message, i) => (
@@ -72,7 +76,7 @@ export const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
           data={message}
         />
       ))}
-      <div className="pt-24" ref={bottomRef} />
+      <div className="h-0" ref={bottomRef} />
     </div>
   );
 };

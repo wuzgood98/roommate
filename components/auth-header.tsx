@@ -14,7 +14,7 @@ export function AuthHeader() {
         src="/images/logo.png"
         alt="Logo"
       />
-      <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-muted-foreground">
+      <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
         {pathname === "/login" && "Sign in to your account"}
         {pathname === "/register" && "Create an account"}
       </h2>

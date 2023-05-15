@@ -75,7 +75,6 @@ export async function POST(
 
     return NextResponse.json(updatedSeenOfLastMessage);
   } catch (error) {
-    console.log(error, "INTERNAL ERROR");
     return new NextResponse("Internal error", { status: 500 });
   }
 }
