@@ -121,7 +121,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json(newConversation);
   } catch (error) {
-    console.log(error, "ERROR DETECTED GROUP ERROR");
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
