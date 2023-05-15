@@ -29,11 +29,11 @@ export const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
   const avatar = cn(isOwn && "order-2");
   const body = cn("flex flex-col gap-2", isOwn && "items-end");
   const message = cn(
-    "text-sm w-fit overflow-hidden",
+    "text-sm w-fit max-w-[13.5rem] sm:max-w-[15rem] overflow-hidden",
     isOwn
       ? "bg-sky-500 text-white"
       : "bg-gray-100 dark:text-gray-300 dark:bg-neutral-500 dark:bg-opacity-40",
-    data.image ? "rounded-md p-0" : "rounded-full py-2 px-3"
+    data.image ? "rounded-md p-0" : "rounded-lg py-2 px-3"
   );
 
   return (
