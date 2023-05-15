@@ -16,15 +16,17 @@ export function MobileFooter({ currentUser }: { currentUser: User }) {
   }
 
   return (
-    <div className="fixed bottom-0 z-40 flex w-full items-center justify-between border-t bg-background px-3 py-2 lg:hidden">
-      <button
-        type="button"
-        aria-label="Open menu"
-        onClick={() => open()}
-        className="transition-opacity hover:opacity-75"
-      >
-        <Avatar user={currentUser} />
-      </button>
+    <ul className="fixed bottom-0 z-40 flex w-full items-center justify-between border-t bg-background px-3 py-2 lg:hidden">
+      <li className="list-none">
+        <button
+          type="button"
+          aria-label="Open menu"
+          onClick={() => open()}
+          className="transition-opacity hover:opacity-75"
+        >
+          <Avatar user={currentUser} />
+        </button>
+      </li>
       {routes.map((route) => (
         <Item
           label={route.label}
@@ -35,6 +37,6 @@ export function MobileFooter({ currentUser }: { currentUser: User }) {
           onClick={route.onClick}
         />
       ))}
-    </div>
+    </ul>
   );
 }
