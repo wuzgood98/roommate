@@ -82,7 +82,7 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
 
     return users.find((user) => user.id === messages.at(-1)?.senderId)?.name;
   }, [data.messages, users]);
-
+  
   return (
     <div
       role="button"
@@ -119,7 +119,7 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
               </span>
             )}
           </div>
-          <div className="inline-flex items-center">
+          <div className="inline-flex max-w-[12.4374rem] items-center">
             {!currentUserIsNotTheAuthorOfLastMessage && !data.isGroup && (
               <Icons.Seen
                 className={cn(
@@ -160,7 +160,7 @@ export const ConversationBox: React.FC<ConversationBoxProps> = ({
               </span>
             )}
             <span
-              className="truncate text-sm text-gray-600 dark:text-gray-300"
+              className="max-w-[11rem] truncate text-sm text-gray-600 dark:text-gray-300"
               title={lastMessageText}
             >
               {lastMessageText}
