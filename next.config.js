@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/conversations",
   images: {
     remotePatterns: [
       {
