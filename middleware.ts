@@ -9,6 +9,10 @@ export default withAuth(
     const isAuthPage =
       req.nextUrl.pathname.startsWith("/login") ||
       req.nextUrl.pathname.startsWith("/register");
+    const isRootRoute = req.nextUrl.pathname === "/";
+    if (isRootRoute) {
+      return NextResponse.redirect(new URL("/conversations", req.url));
+    }
 
     if (isAuthPage) {
       if (isAuth) {
